@@ -1,0 +1,33 @@
+<mat-card>
+    <mat-card-title>Register Account</mat-card-title>
+    <mat-card-content>
+        <form #registerForm="ngForm" [formGroup]="form" (ngSubmit)="register(form.valid, form.value)">
+            <p>
+                <mat-form-field>
+                    <input type="text" matInput placeholder="Username" formControlName="username">
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field>
+                    <input type="password" matInput placeholder="Password" formControlName="password">
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-checkbox formControlName="autoLogin">Auto Login</mat-checkbox>
+            </p>
+
+            <div class="button">
+                <button type="submit" mat-flat-button color="primary">Register</button>
+            </div>
+
+        </form>
+    </mat-card-content>
+</mat-card>
+
+<div class="footer">
+    <a mat-button [routerLink]="[ '/account/login' ]">
+        <mat-icon>lock_open</mat-icon> Click to login
+    </a>
+</div>

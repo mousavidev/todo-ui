@@ -1,0 +1,46 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {
+      "@ngw/storage": [
+        "dist/storage"
+      ],
+      "@ngw/storage/*": [
+        "dist/storage/*"
+      ],
+      "@ngw/authentication": [
+        "dist/authentication"
+      ],
+      "@ngw/authentication/*": [
+        "dist/authentication/*"
+      ],
+      "@ngw/prompt": [
+        "dist/prompt"
+      ],
+      "@ngw/prompt/*": [
+        "dist/prompt/*"
+      ]
+    }
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
+  }
+}

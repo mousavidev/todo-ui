@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+@import './palette';
+
+@import '../app/todo/todo/todo.component.theme';
+
+@include mat-core();
+
+// mandatory stuff for theming
+$palette-primary: mat-palette($mat-primary);
+$palette-accent:  mat-palette($mat-accent);
+$palette-warn: mat-palette($mat-warn);
+
+// include the custom theme components into a theme object
+$todo-theme: mat-light-theme($palette-primary, $palette-accent, $palette-warn);
+
+@include angular-material-theme($todo-theme);
+
+@include ngw-todo-theme($todo-theme);
+
+html, body { height: 100%; }
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: #002129;
+    background-image: url("assets/texture.png");
+}

@@ -1,0 +1,54 @@
+<h1 matDialogTitle>{{ data.title }}</h1>
+<div mat-dialog-content>{{ data.message }}</div>
+<div mat-dialog-actions>
+  <span class="flex-spacer"></span>
+
+  <ng-container *ngFor="let button of data.buttons">
+    <ng-container [ngSwitch]="button.type">
+
+        <!-- Default Button -->
+        <button *ngSwitchCase="'default'"
+          [style.marginLeft.px]="6"
+          [tabindex]="button.tabIndex"
+          type="button"
+          mat-button
+          [color]="button.color"
+          (click)="dialogRef.close(button.data)">
+          {{button.content}}
+        </button>
+
+        <!-- Flat Button -->
+        <button *ngSwitchCase="'flat'"
+          [style.marginLeft.px]="6"
+          [tabindex]="button.tabIndex"
+          type="button"
+          mat-flat-button
+          [color]="button.color"
+          (click)="dialogRef.close(button.data)">
+          {{button.content}}
+        </button>
+
+        <!-- Stroked Button -->
+        <button *ngSwitchCase="'stroked'"
+          [style.marginLeft.px]="6"
+          [tabindex]="button.tabIndex"
+          type="button"
+          mat-stroked-button
+          [color]="button.color"
+          (click)="dialogRef.close(button.data)">
+          {{button.content}}
+        </button>
+
+        <!-- Raised Button -->
+        <button *ngSwitchCase="'raised'"
+          [style.marginLeft.px]="6"
+          [tabindex]="button.tabIndex"
+          type="button"
+          mat-raised-button
+          [color]="button.color"
+          (click)="dialogRef.close(button.data)">
+          {{button.content}}
+        </button>
+    </ng-container>
+  </ng-container>
+</div>

@@ -1,0 +1,7 @@
+@mixin ngw-todo-theme ($theme) {
+    $primary: map-get($theme, primary);
+
+    .mat-button.active {
+        border-bottom: 4px solid mat-color($primary);
+    }
+}
