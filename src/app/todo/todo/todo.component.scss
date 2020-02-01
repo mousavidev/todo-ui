@@ -9,11 +9,6 @@
   flex-direction: row;
   align-items: center;
   margin-top: 12px;
-  color: white;
-}
-
-.mat-toolbar {
-  background: transparent;
 }
 
 .mat-card, .mat-toolbar {
@@ -37,6 +32,7 @@
 
 .inline-form {
   display: flex;
+  width: 100%;
 }
 
 .mat-card-title, .mat-card-actions {
@@ -52,9 +48,17 @@
   flex-direction: row;
 }
 
+.mat-list-item {
+  cursor: default;
+  user-select: none;
+}
+
+.mat-list-item .mat-checkbox {
+  margin-right: 12px;
+}
+
 .done {
   text-decoration: line-through;
-  color: #ccc;
 }
 
 .flex-spacer {

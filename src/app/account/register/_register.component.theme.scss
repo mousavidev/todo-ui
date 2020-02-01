@@ -1,0 +1,10 @@
+@mixin ngw-register-theme ($theme) {
+    $primary: map-get($theme, primary);
+    $foreground: map-get($theme, foreground);
+
+    .ngw-register {
+        .footer {
+            color: mat-color($foreground, 'text');
+        }
+    }
+}

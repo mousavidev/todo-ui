@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, HostBinding } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
@@ -11,6 +11,8 @@ import { AuthenticationService } from '@ngw/authentication';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+
+  @HostBinding('class') classes = 'ngw-register';
 
   @ViewChild('registerForm', { static: false }) registerForm: NgForm;
   form: FormGroup;

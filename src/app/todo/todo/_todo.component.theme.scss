@@ -1,7 +1,22 @@
 @mixin ngw-todo-theme ($theme) {
     $primary: map-get($theme, primary);
+    $foreground: map-get($theme, foreground);
 
-    .mat-button.active {
-        border-bottom: 4px solid mat-color($primary);
+    .ngw-todo {
+        .mat-button.active {
+            border-bottom: 4px solid mat-color($primary);
+        }
+        
+        .mat-toolbar {
+            background: transparent;
+        }
+
+        .done {
+            color: mat-color($foreground, 'disabled-text');
+        }
+
+        .footer {
+            color: mat-color($foreground, 'text');
+        }
     }
 }

@@ -1,0 +1,10 @@
+@import './colors';
+
+// mandatory stuff for theming
+$light-primary: mat-palette($light-color-primary);
+$light-accent:  mat-palette($mat-amber);
+$light-warn: mat-palette($light-color-warn);
+
+$dark-primary: mat-palette($dark-color-primary, 300);
+$dark-accent:  mat-palette($dark-color-accent, 300);
+$dark-warn: mat-palette($dark-color-warn, 500);

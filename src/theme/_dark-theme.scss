@@ -1,0 +1,4 @@
+@import './palettes';
+
+// include the custom theme components into a theme object
+$todo-dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);

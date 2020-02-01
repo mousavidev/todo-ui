@@ -1,0 +1,10 @@
+@mixin ngw-login-theme ($theme) {
+    $primary: map-get($theme, primary);
+    $foreground: map-get($theme, foreground);
+
+    .ngw-login {
+        .footer {
+            color: mat-color($foreground, 'text');
+        }
+    }
+}

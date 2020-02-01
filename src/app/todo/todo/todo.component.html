@@ -3,6 +3,8 @@
     <mat-menu #userMenu="matMenu">
         <button mat-menu-item (click)="promptToLogout()"><mat-icon>lock</mat-icon> Logout</button>
     </mat-menu>
+    <span class="flex-spacer"></span>
+    <ngw-dark-mode></ngw-dark-mode>
 </mat-toolbar>
 
 <mat-card>
@@ -16,7 +18,7 @@
             <!-- Todo Add Form -->
             <form class="inline-form" #formAdd="ngForm" [formGroup]="addFormGroup" (ngSubmit)="addTodo(addFormGroup.valid, addFormGroup.value)">
                 <mat-form-field>
-                    <input formControlName="title" matInput placeholder="Todo title">
+                    <input formControlName="title" matInput placeholder="New Todo">
                     <button matSuffix type="submit" mat-icon-button color="primary"><mat-icon>add</mat-icon></button>
                 </mat-form-field>
             </form>
@@ -51,23 +53,32 @@
 </mat-card>
 
 <div class="footer">
-    <mat-icon>info</mat-icon>
-    <span>Double click to the title of todo to edit.</span>
+    <mat-icon inline>copyright</mat-icon>
+    <span>2020 - powered by <a mat-button href="mail:mousavi.dev@gmail.com">@mousavidev</a></span>
 </div>
 
 <ng-template #todosTpl let-todoList$>
-    <mat-list (selectionChange)="toggleTodoDone($event)" >
+    <mat-list>
         <mat-list-item *ngFor="let todo of todoList$ | async">
-            
             <ng-container *ngIf="todo.editMode">
                 <ng-container *ngTemplateOutlet="editTodoTpl; context: { $implicit: todo }"></ng-container>
             </ng-container>
             
             <ng-container *ngIf="!todo.editMode">
-                <p mat-line [ngClass]="{done: todo.done}" (dblclick)="changeViewToEditTodo(todo)">{{todo.title}}</p>
-                <span class="flex-spacer"></span>
-                <button type="button" mat-icon-button color="warn" (click)="deleteTodo(todo)"><mat-icon>delete</mat-icon></button>
                 <mat-checkbox [checked]="todo.done" (change)="toggleTodoDone($event, todo)"></mat-checkbox>
+                <p [ngClass]="{done: todo.done}" (dblclick)="changeViewToEditTodo(todo)">{{todo.title}}</p>
+                <span class="flex-spacer"></span>
+                <button type="button" mat-icon-button [matMenuTriggerFor]="todoContextMenu"><mat-icon>more_vert</mat-icon></button>
+                <mat-menu #todoContextMenu="matMenu">
+                    <button mat-menu-item (click)="changeViewToEditTodo(todo)">
+                        <mat-icon>edit</mat-icon>
+                        <span>Change title</span>
+                    </button>
+                    <button mat-menu-item (click)="deleteTodo(todo)">
+                        <mat-icon>delete</mat-icon>
+                        <span>Delete</span>
+                    </button>
+                </mat-menu>
             </ng-container>
         </mat-list-item>
     </mat-list>
@@ -78,8 +89,8 @@
         [formGroup]="editFormGroup"
         (ngSubmit)="editTodoTitle(editFormGroup.valid, editFormGroup.value, todo)"
         (keyup.esc)="changeViewToDisplayTodo(todo)">
-        <mat-form-field>
-            <input formControlName="title" matInput autofocus placeholder="Todo title">
+        <mat-form-field appearance="legacy" floatLabel="never">
+            <input formControlName="title" matInput matInputAutofocus placeholder="Todo title">
             <button type="submit" matSuffix mat-icon-button color="primary"><mat-icon>done</mat-icon></button>
             <button type="button" matSuffix mat-icon-button (click)="changeViewToDisplayTodo(todo)"><mat-icon>close</mat-icon></button>
         </mat-form-field>

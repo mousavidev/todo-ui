@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -10,6 +10,9 @@ import { AuthenticationService } from '@ngw/authentication';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+
+  @HostBinding('class') classes = 'ngw-login';
+
   form: FormGroup;
 
   constructor(

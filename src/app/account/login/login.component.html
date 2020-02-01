@@ -14,16 +14,18 @@
                 </mat-form-field>
             </p>
 
-            <div class="button">
+            <div class="flex-container">
                 <button type="submit" mat-flat-button color="primary">Login</button>
+                <span class="flex-spacer"></span>
+                <a mat-button [routerLink]="[ '/account/register' ]">
+                    <mat-icon>person_add</mat-icon> Click to register account
+                </a>
             </div>
-
         </form>
     </mat-card-content>
 </mat-card>
 
 <div class="footer">
-    <a mat-button [routerLink]="[ '/account/register' ]">
-        <mat-icon>person_add</mat-icon> Click to register account
-    </a>
+    <mat-icon inline>copyright</mat-icon>
+    <span>2020 - powered by <a mat-button href="mail:mousavi.dev@gmail.com">@mousavidev</a></span>
 </div>

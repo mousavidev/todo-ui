@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, HostBinding } from '@angular/core';
 import { MatCheckboxChange } from '@angular/material';
 import { FormGroup, FormBuilder, NgForm, Validators } from '@angular/forms';
 import { BehaviorSubject, forkJoin, zip, of } from 'rxjs';
@@ -26,6 +26,9 @@ function isEmptyOrSpaces(str): boolean {
   styleUrls: ['./todo.component.scss']
 })
 export class TodoComponent implements OnInit {
+
+  @HostBinding('class') classes = 'ngw-todo';
+
   @ViewChild('formAdd', { static: false }) formAdd: NgForm;
 
   todoViewMode: TodoViewMode = 'all';

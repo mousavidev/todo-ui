@@ -10,9 +10,10 @@ import { TodoService } from './todo.service';
 import { TodoMaterialModule } from './todo-material.module';
 import { environment } from '../../environments/environment';
 import { TODO_API_URL } from './todo.token';
+import { DarkModeComponent } from '../dark-mode/dark-mode.component';
 
 @NgModule({
-  declarations: [TodoComponent],
+  declarations: [TodoComponent, DarkModeComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,

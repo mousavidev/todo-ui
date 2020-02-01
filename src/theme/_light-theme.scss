@@ -1,0 +1,4 @@
+@import './palettes';
+
+// include the custom theme components into a theme object
+$todo-light-theme: mat-light-theme($light-primary, $light-accent, $light-warn);

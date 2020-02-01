@@ -18,8 +18,12 @@
                 <mat-checkbox formControlName="autoLogin">Auto Login</mat-checkbox>
             </p>
 
-            <div class="button">
+            <div class="flex-container">
                 <button type="submit" mat-flat-button color="primary">Register</button>
+                <span class="flex-spacer"></span>
+                <a mat-button [routerLink]="[ '/account/login' ]">
+                    <mat-icon>lock_open</mat-icon> Click to login
+                </a>
             </div>
 
         </form>
@@ -27,7 +31,6 @@
 </mat-card>
 
 <div class="footer">
-    <a mat-button [routerLink]="[ '/account/login' ]">
-        <mat-icon>lock_open</mat-icon> Click to login
-    </a>
+    <mat-icon inline>copyright</mat-icon>
+    <span>2020 - powered by <a mat-button href="mail:mousavi.dev@gmail.com">@mousavidev</a></span>
 </div>

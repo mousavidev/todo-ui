@@ -10,8 +10,11 @@ import {
     MatDividerModule,
     MatToolbarModule,
     MatRippleModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSlideToggleModule
 } from '@angular/material';
+
+import { MatInputAutofocusDirective } from './todo/auto-focus.directive';
 
 const includesModule = [
     MatCardModule,
@@ -25,10 +28,12 @@ const includesModule = [
     MatToolbarModule,
     MatRippleModule,
     MatMenuModule,
+    MatSlideToggleModule
 ];
 
 @NgModule({
+    declarations: [ MatInputAutofocusDirective ],
     imports: includesModule,
-    exports: includesModule
+    exports: [...includesModule, MatInputAutofocusDirective]
 })
 export class TodoMaterialModule {}

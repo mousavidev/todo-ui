@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+// App Themes
+@import './light-theme';
+@import './dark-theme';
+
+// App Components Theme
+@import '../app/todo/todo/todo.component.theme';
+@import '../app/account/login/login.component.theme';
+@import '../app/account/register/register.component.theme';
+
+// Includes all components theme
+@mixin app-components-theme($theme) {
+    @include ngw-login-theme($theme);
+    @include ngw-register-theme($theme);
+    @include ngw-todo-theme($theme);
+}
+
+html, body { height: 100%; }
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: #002129;
+    background-image: url("assets/texture.png");
+}
+
+.light-theme {
+    @include angular-material-theme($todo-light-theme);
+    @include app-components-theme($todo-light-theme);
+}
+
+.dark-theme {
+    @include angular-material-theme($todo-dark-theme);
+    @include app-components-theme($todo-dark-theme);
+}
